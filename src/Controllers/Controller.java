@@ -1,18 +1,24 @@
 package Controllers;
 
+import Containers.Container;
 import model.Card;
 
 public class Controller {
 
+	Container ctr = Container.getInstance();
+	
 	public void createCards() {
 		for(int n = 1; n<=13; n++) {
-			for(int t = 1; t<=4; t++) {
-				Card card = new Card(getNumber(n), getType(t));
-				//ADD CARD TO STACK
-				System.out.println(card.getNumber() + "   " + card.getType());
+			for(int s = 1; s<=4; s++) {
+				Card card = new Card(getNumber(n), getSuit(s));
+				ctr.addToStack(card);
 			}
 		}
+		ctr.shuffle();
 	}
+	
+
+	
 	
 	private String getNumber(int n) {
 		String number = "";
@@ -34,22 +40,22 @@ public class Controller {
 		return number;
 	}
 	
-	private String getType(int t) {
-		String type = "";
-		switch(t) {
+	private String getSuit(int s) {
+		String suit = "";
+		switch(s) {
 		case 1:
-			type = "spades";
+			suit = "spades";
 			break;
 		case 2:
-			type = "clubs";
+			suit = "clubs";
 			break;
 		case 3:
-			type = "diamonds";
+			suit = "diamonds";
 			break;
 		case 4:
-			type = "hearts";
+			suit = "hearts";
 			break;
 		}
-		return type;
+		return suit;
 	}
 }

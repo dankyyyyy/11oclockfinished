@@ -3,11 +3,11 @@ package model;
 public class Card {
 
 	private String number;
-	private String type;
+	private String suit;
 	
-	public Card(String number, String type) {
+	public Card(String number, String suit) {
 		this.number = number;
-		this.type = type;
+		this.suit = suit;
 	}
 	
 	public void setNumber(String number) {
@@ -18,11 +18,11 @@ public class Card {
 		return number;
 	}
 	
-	public void setType(String type) {
-		this.type = type;
+	public void setSuit(String suit) {
+		this.suit = suit;
 	}
 	
-	public String getType() {
-		return type;
+	public String getSuit() {
+		return suit;
 	}
 }
